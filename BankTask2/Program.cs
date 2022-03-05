@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-
-using System.IO;
-using ClosedXML.Excel;
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Collections;
-using System.Globalization;
 using System.Text.RegularExpressions;
 
 
@@ -35,6 +25,8 @@ namespace BankTask2
         static void Main(string[] args)
         {
 
+            new Client().Main();
+
             var pathCsvFile = "D:/Code/C#/BankTask2/BankTask2/Список_имен.csv";
 
             var rawCsv =  System.IO.File.ReadAllText(pathCsvFile, Encoding.GetEncoding(1251));
@@ -47,18 +39,47 @@ namespace BankTask2
             MatchCollection matchesAge = regex2.Matches(rawCsv);
 
 
+            List<string> fullname = new List<string>();
+
             List<Person> data = new List<Person>();
+
+            string name1 = null ;
+           
 
             for(int i = 0; i< matchesAge.Count;i++)
             {
-                data.Add(new Person(matchesName[i].Value, matchesAge[i].Value));
+                if (!string.IsNullOrEmpty(matchesName[i].Value))
+                {
+                    name1=matchesName[i].Value;
+                }
             }
 
 
-            Console.ReadKey();
+            Regex regex3 = new Regex(@"[А-Яа-яёЁ]+");
+            MatchCollection matchesname21 = regex3.Matches(name1);
+            List<string> funame = new List<string>();
+            for (int i = 0; i < matchesname21.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(matchesname21[i].Value))
+                {
+                  
+                }
+            }
 
 
 
+            //CЛЕДУЮЩИЙ ВОПРОС КАК ПЕРЕВЕСТИ СТРОКУ В ЧИСЛО ????
+
+            List<int> ageint = new List<int>();
+             for (int i = 0; i < matchesAge.Count; i++)
+            {
+
+
+                ageint.Add(int.Parse(matchesAge[i].Value));
+                
+            }
+
+            
 
 
 
@@ -83,7 +104,7 @@ namespace BankTask2
             //var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             //{
             //    Delimiter = ";",
-           
+
 
 
             //};
@@ -92,9 +113,9 @@ namespace BankTask2
             //{
             //    using (CsvReader csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture ))
             //    {
-               
-                    
-                    
+
+
+
             //        // получаем строки
             //        IEnumerable programmingLanguages =
             //            csvReader.GetRecords<ProgrammingLanguage>().ToList();

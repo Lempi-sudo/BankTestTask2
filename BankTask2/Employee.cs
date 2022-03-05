@@ -17,7 +17,7 @@ namespace BankTask2
     class Employee
     {
 
-        public string Name { get; set; }
+        public string FullName { get; set; }
         public int BirthYears { get; set; }
 
         private int _age;
@@ -28,7 +28,7 @@ namespace BankTask2
             {
                 return _age;
             }
-            set
+            private set
             {
                 int currentYear = DateTime.Now.Year;
                 _age = currentYear - value;
@@ -57,32 +57,42 @@ namespace BankTask2
 
         public Employee(string Name, int BirthYears)
         {
-            this.Name = Name;
+            this.FullName = Name;
             this.BirthYears = BirthYears;
             this.Age = BirthYears;
-            this.gender = determineGenderByName(this.Name);
+            this.gender = determineGenderByName(Name);
         }
 
-        public int CalculateHowManyYearsUntilPension(int maleageuntilpension, int femaleageuntilpension)
+        public void SetYearsUntilPension(int maleageuntilpension, int femaleageuntilpension)
         {
             if (gender == Gender.Female)
             {
-                return femaleageuntilpension - this.Age;
+                YearBeforePension = 0;
+                if (femaleageuntilpension - this.Age > 0)
+                {
+                    YearBeforePension = femaleageuntilpension - this.Age;
+                }
+               
             }
             else if (gender == Gender.Male)
             {
-                return maleageuntilpension - this.Age;
+                YearBeforePension = 0;
+                if (maleageuntilpension - this.Age > 0)
+                {
+                    YearBeforePension = maleageuntilpension - this.Age;
+                }
+             
             }
             else
             {
                 Console.WriteLine("Информации для такого гендера нет");
-                return 0;
             }
         }
 
+            
         public Gender determineGenderByName(string Name)
         {
-            return Gender.Other;
+            return Gender.Male;
 
         } 
 
