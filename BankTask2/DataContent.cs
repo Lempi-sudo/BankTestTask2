@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankTask2
 {
@@ -29,18 +27,10 @@ namespace BankTask2
         public DataContent(List<Employee> data)
         {
             Data = data;
-            findMaxAge();
-            findMinAge();
-        }
-
-        private void findMaxAge()
-        {
-            foreach (Employee emp in _data)
+            if (this.Data != null)
             {
-                if (emp.Age > maxAgeEmployee)
-                {
-                    maxAgeEmployee = emp.Age;
-                }
+                minAgeEmployee = _data.Min(e => e.Age); // минимальный возраст
+                maxAgeEmployee = _data.Max(e => e.Age); // максимальный возраст
             }
         }
 
@@ -69,20 +59,6 @@ namespace BankTask2
             }
         
         }
-
-        private void findMinAge()
-        {
-            minAgeEmployee = maxAgeEmployee;
-            foreach (Employee emp in _data)
-            {
-                if (emp.Age < minAgeEmployee)
-                {
-                    minAgeEmployee = emp.Age;
-                }
-            }
-        }
-
-
 
         public double meanYearsEmployee()
         {

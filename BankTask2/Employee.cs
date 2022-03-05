@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BankTask2
 {
@@ -34,10 +31,6 @@ namespace BankTask2
                 _age = currentYear - value;
             }
         }
-
-
-       
-
 
         private int _yearBeforPension;
         public int YearBeforePension
@@ -95,8 +88,12 @@ namespace BankTask2
             return Gender.Male;
 
         } 
-
-
-
     }
 }
+
+
+
+       
+
+
+

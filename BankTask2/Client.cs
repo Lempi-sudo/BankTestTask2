@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -41,7 +40,13 @@ namespace BankTask2
             }
             
             DataContent datacontainer = new DataContent(listdata);
+
+            double mean = datacontainer.meanYearsEmployee();
             
+        }
+
+    }
+}
            
          
 
@@ -53,7 +58,3 @@ namespace BankTask2
             
 
 
-        }
-
-    }
-}
