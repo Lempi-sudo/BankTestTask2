@@ -19,10 +19,16 @@ namespace BankTask2
     {
 
 
-        public class ProgrammingLanguage
+        public class Person
         {
             public string FullName { get; set; }
             public string  Age { get; set; }
+
+            public  Person(string name,  string age)
+            {
+                FullName = name;
+                Age = age;
+            }
         }
 
 
@@ -33,23 +39,40 @@ namespace BankTask2
 
             var rawCsv =  System.IO.File.ReadAllText(pathCsvFile, Encoding.GetEncoding(1251));
 
-            string s = rawCsv;
-            Regex regex = new Regex(@"[А-Яа-я\s]*;\d*");
-            MatchCollection matches = regex.Matches(s);
-
            
+            Regex regex = new Regex(@"[А-Яа-яёЁ\s]+");
+            MatchCollection matchesName = regex.Matches(rawCsv);
 
-            foreach (Match match in matches)
-                Console.WriteLine(match.Value);
+            Regex regex2 = new Regex(@"\d+");
+            MatchCollection matchesAge = regex2.Matches(rawCsv);
 
-            List<string> rowName = new List<string>();
-            List<string> rowAge = new List<string>();
 
-            for (int i = 0; i<matches.Count; i++)
+            List<Person> data = new List<Person>();
+
+            for(int i = 0; i< matchesAge.Count;i++)
             {
-                rowName.Add(matches[i].Value.Split(';').First());
-                rowAge.Add(matches[i].Value.Split(';').Last());
+                data.Add(new Person(matchesName[i].Value, matchesAge[i].Value));
             }
+
+
+            Console.ReadKey();
+
+
+
+
+
+
+            //foreach (Match match in matches)
+            //    Console.WriteLine(match.Value);
+
+            //List<string> rowName = new List<string>();
+            //List<string> rowAge = new List<string>();
+
+            //for (int i = 0; i<matches.Count; i++)
+            //{
+            //    rowName.Add(matches[i].Value.Split(';').First());
+            //    rowAge.Add(matches[i].Value.Split(';').Last());
+            //}
 
 
 
