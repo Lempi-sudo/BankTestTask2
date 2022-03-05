@@ -67,6 +67,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
+    <Compile Include="DataContent.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="IParser.cs" />
+    <Compile Include="IReaderData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
