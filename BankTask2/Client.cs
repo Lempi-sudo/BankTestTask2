@@ -42,6 +42,9 @@ namespace BankTask2
             DataContent datacontainer = new DataContent(listdata);
 
             double mean = datacontainer.meanYearsEmployee();
+
+            IPrinter consoleprinter = new ConsolePrinter();
+            consoleprinter.PrintData(datacontainer.GetDataToPrint());
             
         }
     }

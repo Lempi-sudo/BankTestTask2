@@ -70,6 +70,9 @@
     <Compile Include="Client.cs" />
     <Compile Include="Model\DataContent.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Printer\ConsolePrinter.cs" />
+    <Compile Include="Printer\DataToPrint.cs" />
+    <Compile Include="Printer\IPrinter.cs" />
     <Compile Include="Reader\FileReader.cs" />
     <Compile Include="Parser\IParser.cs" />
     <Compile Include="Reader\IReaderData.cs" />
@@ -81,8 +84,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Printer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

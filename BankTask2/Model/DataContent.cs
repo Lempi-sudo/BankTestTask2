@@ -65,8 +65,24 @@ namespace BankTask2
             double tmp = (maxAgeEmployee - minAgeEmployee) / 2;
             return maxAgeEmployee - tmp;
         }
+
+        public List<DataToPrint> GetDataToPrint()
+        {
+            List<DataToPrint> resdata = new List<DataToPrint>();
+
+            var sortedEmp = _data.OrderBy(p => p.BirthYears);
+
+            foreach (Employee emp in sortedEmp)
+            {
+                resdata.Add(new DataToPrint { Name = emp.SurnameInitials, YearsUntilPension = emp.YearBeforePension });
+            }
+
+            return resdata;
+        }
     }
 }
+
+
 
     
     

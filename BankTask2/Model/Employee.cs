@@ -28,6 +28,18 @@ namespace BankTask2
         }
 
         private string _surnameInitials;
+        public string SurnameInitials
+        {
+            get
+            {
+                return _surnameInitials;
+            }
+
+            private set
+            {
+                _surnameInitials = value;
+            }
+        }
 
         public int BirthYears { get; private set; }
 
@@ -66,7 +78,7 @@ namespace BankTask2
             this.FullName = FullName;
             this.BirthYears = BirthYears;
             this.Age = BirthYears;
-            this._surnameInitials = getSurnameInitialByFullName(FullName);
+            this.SurnameInitials = getSurnameInitialByFullName(FullName);
             this.gender = determineGenderByName(FullName);
         }
 
@@ -92,9 +104,7 @@ namespace BankTask2
                 string name= listNames[1];
                 string lastname= listNames[2];
 
-                if (surname == "Смелоч") { 
-                    Console.WriteLine("смелоч");
-                }
+               
 
                 if (lastSymbolName(name) == "а" || lastSymbolName(name) == "я") return Gender.Female;
                 else return Gender.Male;
