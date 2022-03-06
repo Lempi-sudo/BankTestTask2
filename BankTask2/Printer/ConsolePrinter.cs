@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankTask2
 {
@@ -10,13 +7,29 @@ namespace BankTask2
     {
         public void PrintData(List<DataToPrint> data)
         {
-            Console.WriteLine("========= Tables =========\n");
-            Console.WriteLine("        ФИО           Лет до пенсии\n");
+            var maxLenName = 0;
+            foreach(DataToPrint tmp in data)
+            {
+                if (tmp.Name.Length > maxLenName) maxLenName = tmp.Name.Length;
+            }
+
+            int standartSpace = 4;
+
+            Console.WriteLine("=========== TABLE EMPLOYEE ====================================\n");
+            Console.WriteLine("        ФИО                Лет до пенсии\n");
+
+           
             foreach (DataToPrint tmp in data )
             {
-                Console.WriteLine($"\t{tmp.Name} \t\t{tmp.YearsUntilPension}");
+                string str = "";
+                int raznica = maxLenName - tmp.Name.Length;
+                string spaceBetweenColumns = str.PadLeft(standartSpace + raznica);
+                Console.WriteLine($"\t{tmp.Name} {spaceBetweenColumns}  {tmp.YearsUntilPension}");
             }
             
         }
     }
 }
+
+
+

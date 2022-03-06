@@ -34,6 +34,7 @@ namespace BankTask2
 
             List<Employee> listdata = parser.ParseString(reader.ReadText(path));
 
+            //ВОТ ЭТО НАДО ПЕРЕНЕСТИ КУДА НИБУДЬ!!!!
             foreach(Employee emp in listdata)
             {
                 emp.SetYearsUntilPension(managerPension.MaleYear, managerPension.FemaleYear);
@@ -41,14 +42,26 @@ namespace BankTask2
             
             DataContent datacontainer = new DataContent(listdata);
 
-            double mean = datacontainer.meanYearsEmployee();
-
             IPrinter consoleprinter = new ConsolePrinter();
             consoleprinter.PrintData(datacontainer.GetDataToPrint());
-            
+
+            Console.WriteLine();
+            Console.WriteLine("=======================================================================================");
+            Console.WriteLine();
+            Console.WriteLine($"минимальный возраст:{datacontainer.MinAgeEmployee}");
+            Console.WriteLine($"максимальный возраст:{datacontainer.MaxAgeEmployee}");
+            double mean = datacontainer.meanYearsEmployee();
+            Console.WriteLine($"Cредний возраст:{mean}");
+            Console.ReadKey();
         }
     }
 }
+
+
+
+
+
+
 
            
          

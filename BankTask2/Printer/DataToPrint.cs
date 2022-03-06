@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BankTask2
+﻿namespace BankTask2
 {
     class DataToPrint
     {
@@ -12,3 +6,5 @@ namespace BankTask2
         public int  YearsUntilPension { get; set; }
     }
 }
+
+

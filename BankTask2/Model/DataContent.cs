@@ -22,7 +22,21 @@ namespace BankTask2
         }
 
         private int maxAgeEmployee=0;
-        private int minAgeEmployee=0;
+        public int MaxAgeEmployee
+        {
+            get
+            {
+                return maxAgeEmployee;
+            }
+        }
+        private int minAgeEmployee = 0;
+        public int MinAgeEmployee
+        {
+            get
+            {
+                return minAgeEmployee;
+            }
+        }
 
         public DataContent(List<Employee> data)
         {
