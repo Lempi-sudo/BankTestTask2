@@ -41,14 +41,12 @@ namespace BankTask2
             
             DataContent datacontainer = new DataContent(listdata);
 
-            datacontainer.PrintPersonByGender(Gender.Male);
-
             double mean = datacontainer.meanYearsEmployee();
             
         }
-
     }
 }
+
            
          
 

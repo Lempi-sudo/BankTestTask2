@@ -65,21 +65,6 @@ namespace BankTask2
             double tmp = (maxAgeEmployee - minAgeEmployee) / 2;
             return maxAgeEmployee - tmp;
         }
-
-
-        public void PrintPersonByGender(Gender Param)
-        {
-            foreach(Employee emp in _data)
-            {
-                if(emp.gender == Param)
-                {
-                    Console.WriteLine(emp.FullName);
-                }
-                
-            }
-        }
-
-
     }
 }
 

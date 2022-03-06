@@ -28,21 +28,15 @@ namespace BankTask2
             return resName;
         }
 
-
-
         public List<Employee> ParseString(string datastring)
         {
             List<Employee> resultdata = new List<Employee>();
 
-
             Regex regex = new Regex(@"[А-Яа-яёЁ\s]+");
             MatchCollection MatchName = regex.Matches(datastring);
 
-         
-
             Regex regex2 = new Regex(@"\d+");
             MatchCollection BirthYear = regex2.Matches(datastring);
-
            
             for (int i = 0; i < BirthYear.Count; i++)
             {
@@ -52,9 +46,15 @@ namespace BankTask2
 
                 resultdata.Add(emp);
             }
-           
             return resultdata;
-
         }
     }
 }
+
+
+           
+
+
+
+         
+
