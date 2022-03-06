@@ -93,8 +93,22 @@ namespace BankTask2
 
             return resdata;
         }
+
+        public void SetYearsUntilPensionForAllEmployes(int MaleYear,int FemaleYear)
+        {
+            foreach (Employee emp in _data)
+            {
+                emp.SetYearsUntilPension(MaleYear, FemaleYear);
+            }
+        }
     }
 }
+            
+
+
+
+
+        
 
 
 

@@ -23,7 +23,6 @@ namespace BankTask2
 
         public void Main()
         {
-            ManagerPension managerPension = new ManagerPension(65, 60);
 
             //Надо будет сделать поиск автоматом или просить пользователя ввести:
             string path = "D:/Code/C#/BankTask2/BankTask2/Список_имен.csv";
@@ -34,16 +33,21 @@ namespace BankTask2
 
             List<Employee> listdata = parser.ParseString(reader.ReadText(path));
 
-            //ВОТ ЭТО НАДО ПЕРЕНЕСТИ КУДА НИБУДЬ!!!!
-            foreach(Employee emp in listdata)
-            {
-                emp.SetYearsUntilPension(managerPension.MaleYear, managerPension.FemaleYear);
-            }
-            
             DataContent datacontainer = new DataContent(listdata);
 
+            //Назначаем Пенсионный возраст а затем высчитываем 
+            ManagerPension managerPension = new ManagerPension(65, 60);
+            datacontainer.SetYearsUntilPensionForAllEmployes(managerPension.MaleYear, managerPension.FemaleYear);
+
+            //Вывод данных в Консоль
             IPrinter consoleprinter = new ConsolePrinter();
             consoleprinter.PrintData(datacontainer.GetDataToPrint());
+
+
+            //Сохранить результат в директории Документы для текущего пользователя в файл с "Результирующий Документ.csv" 
+            string pathcvs = @"C:\Users\" + Environment.UserName + @"\Documents\Результирующий Документ.csv";
+            IPrinter csvPrinter = new CsvPrinter(pathcvs);
+            csvPrinter.PrintData(datacontainer.GetDataToPrint());
 
             Console.WriteLine();
             Console.WriteLine("=======================================================================================");
@@ -52,10 +56,18 @@ namespace BankTask2
             Console.WriteLine($"максимальный возраст:{datacontainer.MaxAgeEmployee}");
             double mean = datacontainer.meanYearsEmployee();
             Console.WriteLine($"Cредний возраст:{mean}");
+            Console.WriteLine($"Данные сохранены в CSV файле. Путь к нему {pathcvs}");
+
             Console.ReadKey();
         }
     }
 }
+            
+
+
+
+
+            
 
 
 

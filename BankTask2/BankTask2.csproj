@@ -71,6 +71,7 @@
     <Compile Include="Model\DataContent.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Printer\ConsolePrinter.cs" />
+    <Compile Include="Printer\CsvPrinter.cs" />
     <Compile Include="Printer\DataToPrint.cs" />
     <Compile Include="Printer\IPrinter.cs" />
     <Compile Include="Reader\FileReader.cs" />
