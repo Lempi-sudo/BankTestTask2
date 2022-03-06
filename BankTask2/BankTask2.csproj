@@ -68,18 +68,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
-    <Compile Include="DataContent.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="FileReader.cs" />
-    <Compile Include="IParser.cs" />
-    <Compile Include="IReaderData.cs" />
-    <Compile Include="ParserEmployee.cs" />
+    <Compile Include="Model\DataContent.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Reader\FileReader.cs" />
+    <Compile Include="Parser\IParser.cs" />
+    <Compile Include="Reader\IReaderData.cs" />
+    <Compile Include="Parser\ParserEmployee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Printer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
