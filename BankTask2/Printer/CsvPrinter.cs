@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -30,10 +28,10 @@ namespace BankTask2
                     HasHeaderRecord = false,
                     Delimiter = ";"
                 };
-                IEnumerable<DataToPrint> d = data; 
+               
                 using(var csv = new CsvWriter(writer, csvConfig))
                 {
-                    csv.WriteRecords(d);
+                    csv.WriteRecords(data);
                 }
 
             }

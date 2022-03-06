@@ -25,7 +25,10 @@ namespace BankTask2
         {
 
             //Надо будет сделать поиск автоматом или просить пользователя ввести:
-            string path = "D:/Code/C#/BankTask2/BankTask2/Список_имен.csv";
+            //string path = "D:/Code/C#/BankTask2/BankTask2/Список_имен.csv";
+            Console.WriteLine("Укажите путь к файлу :");
+            string path = Console.ReadLine();
+
 
             IReaderData reader = new FileReader();
 
